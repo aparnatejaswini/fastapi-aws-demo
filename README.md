@@ -54,3 +54,4 @@ $pip install awscli
 To authenticate Docker to an Amazon ECR registry with the CLI
 
 $aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/d1c8i0v0
+
