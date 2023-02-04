@@ -77,13 +77,13 @@ jobs:
         run: |
          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}:latest
 
-      #- name: Stop and remove fastapi container if running
-      #  run: |
-      #   docker ps --filter "name=fastapi" | grep -q . && docker stop fastapi && docker rm -fv fastapi
+      - name: Stop and remove fastapi container if running
+        run: |
+         docker ps --filter "name=fastapi" | grep -q . && docker stop fastapi && docker rm -fv fastapi
        
       - name: Run Docker Image to serve users
         run: |
-         docker run -d -p 80:8080 --name=fastapi -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}:latest
+         docker run -d -p 80:8000 --name=fastapi -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.AWS_ECR_LOGIN_URI}}:latest
       
       - name: Clean previous images and containers
         run: |
