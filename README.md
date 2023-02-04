@@ -29,7 +29,7 @@ $ docker run -dp 8000:8000 fastapi-demo
 #navigate to the .pem key
 $ chmod 400 fastapi-deploy.pem
 
-$ ssh -i "fastapi-deploy.pem" ec2-user@ec2-18-170-112-155.eu-west-2.compute.amazonaws.com
+$ ssh -i "fastapi-deploy.pem" #ec2
 
 #u should be inside ur EC2 instance
 
@@ -47,11 +47,4 @@ $ ssh -i "fastapi-deploy.pem" ec2-user@ec2-18-170-112-155.eu-west-2.compute.amaz
 
 $exit
 
-navigate to project directory
-
-$pip install awscli
-
-To authenticate Docker to an Amazon ECR registry with the CLI
-
-$aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/d1c8i0v0
 
