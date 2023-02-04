@@ -75,7 +75,7 @@ jobs:
       
       - name: Pull latest images
         run: |
-         docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{secrets.ECR_REPOSITORY_NAME}}:fastapi-demo
+         docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/fastapi-deploy-demo:fastapi-demo
 
       - name: Stop and remove fastapi container if running
         run: |
